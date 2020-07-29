@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="v0.1_create_payment_table" author="codeemma">
+        <createTable tableName="payment">
+            <column name="id" type="BIGSERIAL" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users" />
+            </column>
+            <column name="amount" type="NUMERIC(20,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="debtor_iban" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creditor_iban" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="details" type="VARCHAR(255)"/>
+            <column name="creditor_bic" type="VARCHAR(50)"/>
+            <column name="cancelled" type="BOOLEAN" defaultValue="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cancellation_fee" type="NUMERIC(6,2)"/>
+            <column name="cancelled_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
